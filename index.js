@@ -25,9 +25,13 @@ app.post('/generate-quiz', async (req, res) => {
 
     const prompt = `Você é um assistente que gera quizzes para a categoria "${category}".
 Evite repetir perguntas similares às seguintes, que o usuário já respondeu recentemente:
-${previousQuestionsTexts.join('\n')}
+${previousQuestionsTexts.join("\n")}
 
 Gere 10 perguntas, cada uma com 4 alternativas e uma explicação didática para o usuário.
+
+**Instruções Adicionais:**
+- Certifique-se de que as 4 alternativas para cada pergunta tenham um tamanho (número de palavras/caracteres) e complexidade semelhantes, para que a resposta correta não se destaque visualmente.
+- A explicação deve ser clara, concisa e realmente didática, aprofundando o entendimento do usuário sobre o tema da pergunta.
 
 Formato de saída: JSON array com perguntas, opções, resposta correta e explicação, por exemplo:
 
